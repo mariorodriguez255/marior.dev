@@ -1,0 +1,78 @@
+---
+import { GLOBAL } from "../../lib/variables";
+---
+
+<div class="mt-12 mb-8">
+  <h2 class="text-2xl font-display mb-6">{GLOBAL.skillsTitle}</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <!-- Tecnologías y Skills -->
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xl font-mono font-semibold zag-text zag-transition">{GLOBAL.skillsTechnologies}</h3>
+      <ul class="flex flex-wrap gap-2">
+        {GLOBAL.technologies.map((tech) => (
+          <li class="-zag-text -zag-bg zag-transition px-3 py-1 text-sm font-semibold">
+            {tech}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Inteligencia Artificial -->
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xl font-mono font-semibold zag-text zag-transition">{GLOBAL.skillsAI}</h3>
+      <ul class="flex flex-wrap gap-2">
+        {GLOBAL.aiSkills.map((skill) => (
+          <li class="-zag-text -zag-bg zag-transition px-3 py-1 text-sm font-semibold">
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Certificaciones (en una nueva fila) -->
+  <div class="mt-8">
+    <h3 class="text-xl font-mono font-semibold zag-text zag-transition mb-4">{GLOBAL.skillsCertifications}</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Certificaciones Completadas -->
+      <div>
+        <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certCompleted}</h4>
+        <ul class="flex flex-col gap-3">
+          {GLOBAL.completedCertifications.map((cert) => (
+            <li class="zag-text zag-transition">
+              <div class="font-medium">{cert.name}</div>
+              <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Certificaciones En Curso -->
+      <div>
+        <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certInProgress}</h4>
+        <ul class="flex flex-col gap-3">
+          {GLOBAL.inProgressCertifications.map((cert) => (
+            <li class="zag-text zag-transition">
+              <div class="font-medium">{cert.name}</div>
+              <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Certificaciones Futuras -->
+      <div>
+        <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certPlanned}</h4>
+        <ul class="flex flex-col gap-3">
+          {GLOBAL.plannedCertifications.map((cert) => (
+            <li class="zag-text zag-transition">
+              <div class="font-medium">{cert.name}</div>
+              <div class="text-sm zag-muted zag-transition">{cert.issuer}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

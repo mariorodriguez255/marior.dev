@@ -33,7 +33,7 @@ const year = date.getFullYear();
         <p id="quote" class="zag-text zag-transition"></p>
       </div>
       <div class="flex flex-row sm:flex-col gap-4">
-        {GLOBAL.githubProfile && (<Anchor url={GLOBAL.githubProfile} aria-label="GitHub Profile">
+        {GLOBAL.githubProfile && (<Anchor url={GLOBAL.githubProfile} aria-label="Perfil de GitHub">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -46,21 +46,8 @@ const year = date.getFullYear();
             ></path>
           </svg>
         </Anchor>)}
-        {GLOBAL.twitterProfile && (<Anchor url={GLOBAL.twitterProfile} aria-label="Twitter Profile">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-          >
-            <path
-              class="zag-fill zag-transition"
-              d="m17.687 3.063l-4.996 5.711l-4.32-5.711H2.112l7.477 9.776l-7.086 8.099h3.034l5.469-6.25l4.78 6.25h6.102l-7.794-10.304l6.625-7.571zm-1.064 16.06L5.654 4.782h1.803l10.846 14.34z"
-            ></path>
-          </svg>
-        </Anchor>)}
         {GLOBAL.linkedinProfile && (
-          <Anchor url={GLOBAL.linkedinProfile} aria-label="LinkedIn Profile">
+          <Anchor url={GLOBAL.linkedinProfile} aria-label="Perfil de LinkedIn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -80,91 +67,51 @@ const year = date.getFullYear();
   <p
     class="zag-text zag-transition text-center text-sm font-medium"
   >
-    &copy; {year} {GLOBAL.username}. All rights reserved.
+    &copy; {year} {GLOBAL.username}. Todos los derechos reservados.
   </p>
 </footer>
 
 <script>
   const quotes = [
     {
-      quote: "The purple elephant dances only when the moon whispers forgotten lullabies.",
-      source: "Professor Whimsy's Guide to Improbable Physics",
+      quote: "El elefante púrpura baila solo cuando la luna susurra nanas olvidadas.",
+      source: "Guía del Profesor Whimsy para la Física Improbable",
     },
     {
-      quote: "I've counted seventeen doorknobs today, but none of them taste like Tuesday's promises.",
-      source: "Confessions of a Chronological Misfit",
+      quote: "He contado diecisiete picaportes hoy, pero ninguno sabe como las promesas del martes.",
+      source: "Confesiones de un Inadaptado Cronológico",
     },
     {
-      quote: "Beware the smiling potato, for it has seen your socks and judges them harshly.",
-      source: "Garden Vegetables of Doom",
+      quote: "Cuidado con la patata sonriente, porque ha visto tus calcetines y los juzga severamente.",
+      source: "Verduras de Jardín de la Perdición",
     },
     {
-      quote: "The symphony of silence plays best when butterflies wear tiny boots.",
-      source: "Metaphors for Breakfast",
+      quote: "La sinfonía del silencio suena mejor cuando las mariposas llevan botas diminutas.",
+      source: "Metáforas para el Desayuno",
     },
     {
-      quote: "My teacup is running backwards through time while the spoon contemplates existential mathematics.",
-      source: "Caffeinated Dimensions",
+      quote: "Mi taza de té corre hacia atrás en el tiempo mientras la cuchara contempla las matemáticas existenciales.",
+      source: "Dimensiones Cafeinadas",
     },
     {
-      quote: "Cloudy with a chance of philosophical dilemmas and spontaneous tap dancing.",
-      source: "Meteorological Mysteries",
+      quote: "Nublado con probabilidad de dilemas filosóficos y baile de claqué espontáneo.",
+      source: "Misterios Meteorológicos",
     },
     {
-      quote: "The secret ingredient is always waving enthusiastically at passing submarines.",
-      source: "Cookbook of Impractical Delights",
+      quote: "El ingrediente secreto siempre es saludar entusiasmadamente a los submarinos que pasan.",
+      source: "Libro de Cocina de Delicias Impracticables",
     },
     {
-      quote: "When the traffic light turns purple, that's when you know the universe is giggling.",
-      source: "Urban Navigation for Dreamers",
+      quote: "Cuando el semáforo se vuelve púrpura, es cuando sabes que el universo se está riendo.",
+      source: "Navegación Urbana para Soñadores",
     },
     {
-      quote: "I've alphabetized my collection of invisible hats according to their emotional resonance.",
-      source: "Organizing the Impossible",
+      quote: "He ordenado alfabéticamente mi colección de sombreros invisibles según su resonancia emocional.",
+      source: "Organizando lo Imposible",
     },
     {
-      quote: "Dinosaurs never worried about Wi-Fi passwords, and look where that got them.",
-      source: "Modern Anxieties Explained",
-    },
-    {
-      quote: "The sentient sock drawer plotted revolution while my left eyebrow contemplated quantum mechanics in seventeen dimensions simultaneously.",
-      source: "Household Items That Know Too Much",
-    },
-    {
-      quote: "Jellyfish conspiracies taste like upside-down rainbows when the toaster is feeling particularly melancholic on Thursdays.",
-      source: "Appliance Psychology Weekly",
-    },
-    {
-      quote: "I've been collecting extinct colors from parallel universes where geometry is considered rude at dinner parties.",
-      source: "Interdimensional Etiquette Manual",
-    },
-    {
-      quote: "Bicycle wheels dream of being carousels, but spoons just want to spoon with forks in the dishwasher's midnight jazz club.",
-      source: "Kitchen Utensil Romance Novels",
-    },
-    {
-      quote: "Yesterday's tomorrow refused delivery of its own shadow because it was too busy teaching alphabet soup how to form coherent sentences in Klingon.",
-      source: "Temporal Delivery Issues",
-    },
-    {
-      quote: "The mysterious art of unfolding banana peels into origami pterodactyls requires exactly seven and a half thoughts about mittens per square watermelon.",
-      source: "Fruit Transformation Techniques",
-    },
-    {
-      quote: "My neighbor's pet cactus whispers governmental secrets to passing clouds, but only when wearing its tiny invisible bowler hat.",
-      source: "Suburban Botanical Conspiracy Theories",
-    },
-    {
-      quote: "Orchestras composed entirely of sneezing dust particles perform symphonies in the spaces between your blinking patterns.",
-      source: "Microscopic Entertainment Guide",
-    },
-    {
-      quote: "I've discovered that elevator music actually contains encrypted instructions for communicating with sentient cheese residing in the moon's secret jazz clubs.",
-      source: "Muzak Decryption Society Newsletter",
-    },
-    {
-      quote: "The antelope wore mismatched socks while reciting backwards poetry to confused lightbulbs that believed they were actually tiny imprisoned suns having existential crises.",
-      source: "Wildlife Fashion & Philosophy Quarterly",
+      quote: "Los dinosaurios nunca se preocuparon por las contraseñas de Wi-Fi, y mira dónde terminaron.",
+      source: "Ansiedades Modernas Explicadas",
     },
   ];
   const quoteElement = document.getElementById("quote");

@@ -19,7 +19,7 @@ type MarkdownData<T extends object> = {
  * @returns a promise that resolves to an array of processed content
  */
 export const processContentInDir = async <T extends object, K>(
-  contentType: "projects" | "blog",
+  contentType: "projects",
   processFn: (data: MarkdownData<T>) => K,
   dir: string = process.cwd(),
 ) => {
@@ -28,36 +28,24 @@ export const processContentInDir = async <T extends object, K>(
     .filter((file: string) => file.endsWith(".md"))
     .map((file) => file.split(".")[0]);
   const readMdFileContent = async (file: string) => {
-    if (contentType === "projects") {
-      const content = import.meta
-        .glob(`/src/pages/projects/*.md`)
-        [`/src/pages/projects/${file}.md`]();
-      const data = (await content) as {
-        frontmatter: T;
-        file: string;
-        url: string;
-      };
-      return processFn(data);
-    } else {
-      const content = import.meta
-        .glob(`/src/pages/blog/*.md`)
-        [`/src/pages/blog/${file}.md`]();
-      const data = (await content) as {
-        frontmatter: T;
-        file: string;
-        url: string;
-      };
-      return processFn(data);
-    }
+    const content = import.meta
+      .glob(`/src/pages/projects/*.md`)
+      [`/src/pages/projects/${file}.md`]();
+    const data = (await content) as {
+      frontmatter: T;
+      file: string;
+      url: string;
+    };
+    return processFn(data);
   };
   return await Promise.all(markdownFiles.map(readMdFileContent));
 };
 
 /**
- * Shortens a string by removing words at the end until it fits within a certain length.
- * @param content the content to shorten
- * @param maxLength the maximum length of the shortened content (default is 20)
- * @returns a shortened version of the content
+ * Acorta una cadena de texto eliminando palabras al final hasta que se ajuste a una longitud determinada.
+ * @param content el contenido a acortar
+ * @param maxLength la longitud máxima del contenido acortado (por defecto es 20)
+ * @returns una versión acortada del contenido
  */
 export const getShortDescription = (content: string, maxLength = 20) => {
   const splitByWord = content.split(" ");
@@ -66,27 +54,16 @@ export const getShortDescription = (content: string, maxLength = 20) => {
 };
 
 /**
- * Processes the date of an article and returns a string representing the processed date.
- * @param timestamp the timestamp to process
- * @returns a string representing the processed timestamp
- */
-export const processArticleDate = (timestamp: string) => {
-  const date = new Date(timestamp);
-  const monthSmall = date.toLocaleString("default", { month: "short" });
-  const day = date.getDate();
-  const year = date.getFullYear();
-  return `${monthSmall} ${day}, ${year}`;
-};
-
-/**
- * Generates a source URL for a content item. The URL is used in meta tags and social media cards.
- * @param sourceUrl the source URL of the content
- * @param contentType the type of content (either "projects" or "blog")
- * @returns a string representing the source URL with the appropriate domain
+ * Genera una URL de origen para un elemento de contenido. La URL se utiliza en meta tags y tarjetas de redes sociales.
+ * @param sourceUrl la URL de origen del contenido
+ * @param contentType el tipo de contenido (projects)
+ * @returns una cadena que representa la URL de origen con el dominio apropiado
  */
 export const generateSourceUrl = (
   sourceUrl: string,
-  contentType: "projects" | "blog",
+  contentType: "projects",
 ) => {
-  return `${GLOBAL.rootUrl}/${contentType}/${sourceUrl}`;
+  // Traducir la ruta si el contentType es "projects"
+  const contentPath = contentType === "projects" ? "proyectos" : contentType;
+  return `${GLOBAL.rootUrl}/${contentPath}/${sourceUrl}`;
 };
