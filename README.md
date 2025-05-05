@@ -1,5 +1,3 @@
-![Mario Rodriguez - Portfolio personal]
-
 # Portfolio de Mario Rodriguez
 
 Mi portafolio personal, diseñado y desarrollado por mí mismo. Construido con TypeScript, TailwindCSS y Astro para mostrar mis proyectos y habilidades de desarrollo web.
@@ -12,7 +10,7 @@ Este portfolio ha sido creado para presentar mi trabajo como desarrollador y mos
 
 - Diseño adaptable a modo oscuro y claro
 - Colores personalizados que reflejan mi identidad profesional
-- Puntuación 100/100 en Lighthouse
+- Puntuación 95/100 en Lighthouse
 - Totalmente accesible y responsive
 - Desarrollado con TypeScript para mayor seguridad
 - Optimizado para SEO
