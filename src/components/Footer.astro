@@ -13,11 +13,19 @@ const year = date.getFullYear();
       class="zag-border-b zag-transition pb-4 flex flex-col sm:flex-row sm:flex-nowrap gap-8 sm:items-center"
     >
       <ul class="flex flex-col gap-2">
-        {Object.entries(GLOBAL.menu).map((i) => (
-          <li>
-            <Anchor url={i[1]}>{i[0]}</Anchor>
-          </li>
-        ))}
+        <!-- Ordenado según lo solicitado: inicio, habilidades, experiencia, proyectos -->
+        <li>
+          <Anchor url="/">Inicio</Anchor>
+        </li>
+        <li>
+          <Anchor url="/skills">Habilidades</Anchor>
+        </li>
+        <li>
+          <Anchor url="/experience">Experiencia</Anchor>
+        </li>
+        <li>
+          <Anchor url="/projects">Proyectos</Anchor>
+        </li>
       </ul>
       <div class="flex flex-start items-start gap-4 w-full">
         <svg

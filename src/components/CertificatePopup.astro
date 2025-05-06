@@ -12,7 +12,7 @@ const { title, issuer, date, imageUrl } = Astro.props;
 
 <div id="certificate-popup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
   <div class="fixed inset-0 bg-black bg-opacity-50" id="certificate-backdrop"></div>
-  <div class="zag-bg zag-transition rounded max-w-2xl w-full max-h-[90vh] overflow-auto relative z-10 p-6">
+  <div class="zag-bg zag-transition max-w-2xl w-full max-h-[90vh] overflow-auto relative z-10 p-6 border-2 zag-border-b">
     <div class="flex justify-between items-start mb-4">
       <div>
         <h3 class="text-xl font-mono font-semibold zag-text zag-transition">{title}</h3>
@@ -20,7 +20,7 @@ const { title, issuer, date, imageUrl } = Astro.props;
       </div>
       <button 
         id="close-popup" 
-        class="p-2 -zag-bg -zag-text zag-transition rounded"
+        class="p-2 -zag-bg -zag-text zag-transition"
         aria-label="Cerrar"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
@@ -32,7 +32,7 @@ const { title, issuer, date, imageUrl } = Astro.props;
       <img 
         src={imageUrl} 
         alt={`Certificado de ${title} emitido por ${issuer}`} 
-        class="w-full h-auto rounded"
+        class="w-full h-auto"
         loading="lazy"
       />
     </div>

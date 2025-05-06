@@ -19,10 +19,12 @@ export const GLOBAL = {
   // Common text names used throughout the site
   projectsName: "Proyectos",
   experienceTitle: "Experiencia Laboral",
+  skillsTitle: "Habilidades en Desarrollo y Certificaciones",
   viewAll: "Ver todos",
   
   // Common descriptions used throughout the site
   noProjects: "No hay proyectos destacados aún.",
+  skillsDisclaimer: "Tecnologías y herramientas que estoy aprendiendo y utilizando en mi formación continua como desarrollador.",
 
   // Project metadata
   projectTitle: "Proyectos y Código",
@@ -35,6 +37,7 @@ export const GLOBAL = {
   // Menu items
   menu: {
     Inicio: "/",
+    Habilidades: "/skills",
     Experiencia: "/experience",
     Proyectos: "/projects",
   },
@@ -42,11 +45,11 @@ export const GLOBAL = {
   // Experience section
   experiences: [
     {
-      position: "FrontEnd Dev for Ropema Rubio",
+      position: "FrontEnd Dev (Freelance)",
       company: "Ropema Rubio",
       period: "2025",
-      description: "Desarrollo completo de la página web, configuración de dominios, SEO y posicionamiento en Google. Implementación de calculadora de presupuestos y visualización de productos.",
-      skills: ["React", "Next.js", "SEO", "WordPress", "v0.dev"]
+      description: "Desarrollo completo de la página web, configuración de dominios, SEO y posicionamiento en Google. Implementación de visualización de productos y diseño responsive con enfoque en la experiencia de usuario.",
+      skills: ["React", "Next.js", "SEO", "v0.dev"]
     },
     {
       position: "FrontEnd Dev",
@@ -67,8 +70,7 @@ export const GLOBAL = {
   ],
 
   // Skills section
-  skillsTitle: "Habilidades y Certificaciones",
-  skillsTechnologies: "Tecnologías y Skills",
+  skillsTechnologies: "Tecnologías en Aprendizaje",
   skillsAI: "Inteligencia Artificial",
   skillsCertifications: "Certificaciones",
   certCompleted: "Completadas",
@@ -170,7 +172,7 @@ export const GLOBAL = {
   plannedCertifications: [
     {
       name: "Formación en TypeScript",
-      issuer: "Amazon Web Services"
+      issuer: "CodeCademy"
     },
     {
       name: "Formación ingeniero de DevOps",

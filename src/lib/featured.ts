@@ -21,7 +21,8 @@ export const featuredProjects = (
     },
   )
 )
-  .filter((project) => project.featured)
+  // Filtrar para excluir el proyecto de Ropema Rubio y mostrar solo los destacados
+  .filter((project) => project.featured && project.filename !== "/projects/zaggonaut")
   .sort((a, b) => {
     const dateA = new Date(a.timestamp);
     const dateB = new Date(b.timestamp);

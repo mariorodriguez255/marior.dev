@@ -1,7 +1,6 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
-@variant dark (&:where(.dark, .dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: "Literata Variable";
@@ -29,28 +28,25 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@theme {
+:root {
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-display: "press-start-2p", ui-monospace, monospace;
   --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --color-zag-dark: var(--color-neutral-900);
-  --color-zag-light: var(--color-neutral-100);
-  --color-zag-dark-muted: var(--color-neutral-600);
-  --color-zag-light-muted: var(--color-neutral-400);
-  --color-zag-accent-light: var(--color-emerald-400);
-  --color-zag-accent-light-muted: var(--color-emerald-300);
-  --color-zag-accent-dark: var(--color-emerald-600);
-  --color-zag-accent-dark-muted: var(--color-emerald-800);
+  --color-zag-dark: theme('colors.neutral.900');
+  --color-zag-light: theme('colors.neutral.100');
+  --color-zag-dark-muted: theme('colors.neutral.600');
+  --color-zag-light-muted: theme('colors.neutral.400');
+  --color-zag-accent-light: theme('colors.emerald.400');
+  --color-zag-accent-light-muted: theme('colors.emerald.300');
+  --color-zag-accent-dark: theme('colors.emerald.600');
+  --color-zag-accent-dark-muted: theme('colors.emerald.800');
+  --zag-stroke: 2px;
+  --zag-offset: 6px;
+  --zag-transition-duration: 0.15s;
+  --zag-transition-timing-function: ease-in-out;
 }
 
 @layer base {
-  :root {
-    --zag-stroke: 2px;
-    --zag-offset: 6px;
-    --zag-transition-duration: 0.15s;
-    --zag-transition-timing-function: ease-in-out;
-  }
-
   .zag-transition {
     @media (prefers-reduced-motion: no-preference) {
       transition:
@@ -64,49 +60,49 @@
 
   .zag-bg {
     background-color: var(--color-zag-light);
-    :where(.dark, .dark *) & {
+    .dark & {
       background-color: var(--color-zag-dark);
     }
   }
 
   .-zag-bg {
     background-color: var(--color-zag-dark);
-    :where(.dark, .dark *) & {
+    .dark & {
       background-color: var(--color-zag-light);
     }
   }
   
   .zag-text {
     color: var(--color-zag-dark);
-    :where(.dark, .dark *) & {
+    .dark & {
       color: var(--color-zag-light);
     }
   }
 
   .-zag-text {
     color: var(--color-zag-light);
-    :where(.dark, .dark *) & {
+    .dark & {
       color: var(--color-zag-dark);
     }
   }
 
   .zag-muted {
     color: var(--color-zag-dark-muted);
-    :where(.dark, .dark *) & {
+    .dark & {
       color: var(--color-zag-light-muted);
     }
   }
 
   .zag-fill {
     fill: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
+    .dark & {
       fill: var(--color-zag-light);
     }
   }
 
   .zag-text-muted {
     color: var(--color-zag-dark-muted);
-    &:where(.dark, .dark *) {
+    .dark & {
       color: var(--color-zag-light-muted);
     }
   }
@@ -114,7 +110,7 @@
   .zag-border-b {
     border-bottom: var(--zag-stroke) solid;
     border-color: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
+    .dark & {
       border-color: var(--color-zag-light);
     }
   }

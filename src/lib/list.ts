@@ -20,8 +20,11 @@ export const projects = (
       };
     },
   )
-).sort((a, b) => {
-  const dateA = new Date(a.timestamp);
-  const dateB = new Date(b.timestamp);
-  return dateB.getTime() - dateA.getTime();
-});
+)
+  // Filtrar para excluir el proyecto de Ropema Rubio
+  .filter((project) => project.filename !== "/projects/zaggonaut")
+  .sort((a, b) => {
+    const dateA = new Date(a.timestamp);
+    const dateB = new Date(b.timestamp);
+    return dateB.getTime() - dateA.getTime();
+  });

@@ -4,6 +4,7 @@ import { projects } from "../lib/list";
 
 const validURLs = [
   "/",
+  "/skills",
   "/experience",
   "/projects",
   ...projects.map(project => project.filename)

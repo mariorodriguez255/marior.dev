@@ -1,0 +1,131 @@
+---
+import Section from "../components/common/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import { GLOBAL } from "../lib/variables";
+import CertificateButton from "../components/CertificateButton.astro";
+import CertificatePopup from "../components/CertificatePopup.astro";
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>Habilidades y Certificaciones • {GLOBAL.username}</title>
+    <meta
+      name="description"
+      content={`Habilidades en desarrollo y certificaciones de ${GLOBAL.username}. Tecnologías en aprendizaje como React, JavaScript, Java, y certificaciones en IA, desarrollo web y metodologías ágiles.`}
+    />
+    <meta property="og:title" content={`Habilidades en Desarrollo • ${GLOBAL.username}`} />
+    <meta
+      property="og:description"
+      content={`Habilidades en desarrollo y certificaciones de ${GLOBAL.username}. Tecnologías en aprendizaje como React, JavaScript, Java, y certificaciones en IA, desarrollo web y metodologías ágiles.`}
+    />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta property="og:url" content={`${GLOBAL.rootUrl}/skills`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Habilidades en Desarrollo • ${GLOBAL.username}`} />
+    <meta
+      name="twitter:description"
+      content={`Habilidades en desarrollo y certificaciones de ${GLOBAL.username}. Tecnologías en aprendizaje como React, JavaScript, Java, y certificaciones en IA, desarrollo web y metodologías ágiles.`}
+    />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta http-equiv="content-language" content="es" />
+    <meta name="language" content="Spanish" />
+    <link rel="canonical" href={`${GLOBAL.rootUrl}/skills`} />
+    <meta name="robots" content="index, follow" />
+  </Fragment>
+
+  <Section class="py-4 my-8">
+    <div class="flex items-center gap-4 pt-8 pb-6">
+      <h1 class="font-display text-3xl sm:text-4xl leading-loose">{GLOBAL.skillsTitle}</h1>
+    </div>
+    <p class="zag-text zag-transition mb-10 italic">{GLOBAL.skillsDisclaimer}</p>
+
+    <div class="space-y-12">
+      <!-- Tecnologías -->
+      <div>
+        <h2 class="text-2xl font-mono font-semibold zag-text zag-transition mb-6">{GLOBAL.skillsTechnologies}</h2>
+        <div class="flex flex-wrap gap-3">
+          {GLOBAL.technologies.map((tech) => (
+            <div class="-zag-text -zag-bg zag-transition px-4 py-2 text-base font-semibold">
+              {tech}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- IA -->
+      <div>
+        <h2 class="text-2xl font-mono font-semibold zag-text zag-transition mb-6">{GLOBAL.skillsAI}</h2>
+        <div class="flex flex-wrap gap-3">
+          {GLOBAL.aiSkills.map((skill) => (
+            <div class="-zag-text -zag-bg zag-transition px-4 py-2 text-base font-semibold">
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Certificaciones -->
+      <div>
+        <h2 class="text-2xl font-mono font-semibold zag-text zag-transition mb-6">{GLOBAL.skillsCertifications}</h2>
+        
+        <!-- Certificaciones Completadas -->
+        <div class="mb-10">
+          <h3 class="text-xl font-semibold zag-text zag-transition mb-4">{GLOBAL.certCompleted}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {GLOBAL.completedCertifications.map((cert, index) => (
+              <div class="zag-bg zag-transition border-2 zag-border-b p-5 h-full flex flex-col">
+                <div class="font-medium text-lg mb-2">{cert.name}</div>
+                <div class="text-sm zag-muted zag-transition mb-3">{cert.issuer} • {cert.date}</div>
+                {cert.imageUrl && (
+                  <div class="mt-auto pt-2">
+                    <CertificateButton 
+                      certId={`cert-${index}`}
+                      certData={cert}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Certificaciones En Curso y Planeadas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- En Curso -->
+          <div>
+            <h3 class="text-xl font-semibold zag-text zag-transition mb-4">{GLOBAL.certInProgress}</h3>
+            <div class="space-y-4">
+              {GLOBAL.inProgressCertifications.map((cert) => (
+                <div class="zag-bg zag-transition border-2 zag-border-b p-4">
+                  <div class="font-medium">{cert.name}</div>
+                  <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Planeadas -->
+          <div>
+            <h3 class="text-xl font-semibold zag-text zag-transition mb-4">{GLOBAL.certPlanned}</h3>
+            <div class="space-y-4">
+              {GLOBAL.plannedCertifications.map((cert) => (
+                <div class="zag-bg zag-transition border-2 zag-border-b p-4">
+                  <div class="font-medium">{cert.name}</div>
+                  <div class="text-sm zag-muted zag-transition">{cert.issuer}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+  
+  <!-- Certificate Popup (solo se renderizará una vez en la página) -->
+  <CertificatePopup 
+    title="" 
+    issuer="" 
+    date="" 
+    imageUrl="" 
+  />
+</Layout>

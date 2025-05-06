@@ -5,7 +5,8 @@ import CertificatePopup from "../CertificatePopup.astro";
 ---
 
 <div class="mt-12 mb-8">
-  <h2 class="text-2xl font-display mb-6">{GLOBAL.skillsTitle}</h2>
+  <h2 class="text-2xl font-display mb-3">{GLOBAL.skillsTitle}</h2>
+  <p class="zag-text zag-transition mb-6 italic text-sm">{GLOBAL.skillsDisclaimer}</p>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
     <!-- Tecnologías y Skills -->
@@ -34,52 +35,59 @@ import CertificatePopup from "../CertificatePopup.astro";
   </div>
   
   <!-- Certificaciones (en una nueva fila) -->
-  <div class="mt-8">
+  <div class="mt-10">
     <h3 class="text-xl font-mono font-semibold zag-text zag-transition mb-4">{GLOBAL.skillsCertifications}</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Sección de certificaciones con mejor distribución -->
+    <div>
       <!-- Certificaciones Completadas -->
-      <div>
+      <div class="mb-8">
         <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certCompleted}</h4>
-        <ul class="flex flex-col gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GLOBAL.completedCertifications.map((cert, index) => (
-            <li class="zag-text zag-transition">
-              <div class="font-medium">{cert.name}</div>
-              <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+            <div class="zag-bg zag-transition border-2 zag-border-b p-4 h-full flex flex-col">
+              <div class="font-medium mb-1">{cert.name}</div>
+              <div class="text-xs zag-muted zag-transition mb-2">{cert.issuer} • {cert.date}</div>
               {cert.imageUrl && (
-                <CertificateButton 
-                  certId={`cert-${index}`}
-                  certData={cert}
-                />
+                <div class="mt-auto pt-2">
+                  <CertificateButton 
+                    certId={`cert-${index}`}
+                    certData={cert}
+                  />
+                </div>
               )}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       
-      <!-- Certificaciones En Curso -->
-      <div>
-        <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certInProgress}</h4>
-        <ul class="flex flex-col gap-3">
-          {GLOBAL.inProgressCertifications.map((cert) => (
-            <li class="zag-text zag-transition">
-              <div class="font-medium">{cert.name}</div>
-              <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <!-- Certificaciones Futuras -->
-      <div>
-        <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certPlanned}</h4>
-        <ul class="flex flex-col gap-3">
-          {GLOBAL.plannedCertifications.map((cert) => (
-            <li class="zag-text zag-transition">
-              <div class="font-medium">{cert.name}</div>
-              <div class="text-sm zag-muted zag-transition">{cert.issuer}</div>
-            </li>
-          ))}
-        </ul>
+      <!-- Otras certificaciones en dos columnas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Certificaciones En Curso -->
+        <div>
+          <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certInProgress}</h4>
+          <ul class="space-y-3">
+            {GLOBAL.inProgressCertifications.map((cert) => (
+              <li class="zag-text zag-transition">
+                <div class="font-medium">{cert.name}</div>
+                <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Certificaciones Futuras -->
+        <div>
+          <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certPlanned}</h4>
+          <ul class="space-y-3">
+            {GLOBAL.plannedCertifications.map((cert) => (
+              <li class="zag-text zag-transition">
+                <div class="font-medium">{cert.name}</div>
+                <div class="text-sm zag-muted zag-transition">{cert.issuer}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </div>

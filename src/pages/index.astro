@@ -58,11 +58,12 @@ import FeaturedProjects from "../components/home/FeaturedProjects.astro";
   <Section class="mt-16 mb-0">
     <Hero />
   </Section>
-  <Section class="mb-0">
-    <Experience />
-  </Section>
+  <!-- Reordenado según lo solicitado: Primero habilidades, luego experiencia, finalmente proyectos -->
   <Section class="mb-0">
     <Skills />
+  </Section>
+  <Section class="mb-0">
+    <Experience />
   </Section>
   <Section>
     <FeaturedProjects featuredProjects={featuredProjects} />
