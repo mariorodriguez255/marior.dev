@@ -4,43 +4,62 @@ import { GLOBAL } from "../lib/variables";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
 import Skills from "../components/home/Skills.astro";
+import Experience from "../components/home/Experience.astro";
 import Section from "../components/common/Section.astro";
 import FeaturedProjects from "../components/home/FeaturedProjects.astro";
 ---
 
 <Layout>
   <Fragment slot="head">
-    <title>{GLOBAL.username} • {GLOBAL.shortDescription}</title>
-    <meta
-      name="description"
-      content={GLOBAL.longDescription}
-    />
-    <meta
-      property="og:title"
-      content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
-    />
-    <meta
-      property="og:description"
-      content={GLOBAL.longDescription}
-    />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} /> 
+    <title>{GLOBAL.seoTitle}</title>
+    <meta name="description" content={GLOBAL.seoDescription} />
+    <meta name="keywords" content={GLOBAL.seoKeywords} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={GLOBAL.seoTitle} />
+    <meta property="og:description" content={GLOBAL.seoDescription} />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} /> 
     <meta property="og:url" content={GLOBAL.rootUrl} />
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
-    />
-    <meta
-      name="twitter:description"
-      content={GLOBAL.longDescription}
-    />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} />
+    <meta name="twitter:title" content={GLOBAL.seoTitle} />
+    <meta name="twitter:description" content={GLOBAL.seoDescription} />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    
+    <!-- Language, Canonical and Indexing -->
     <meta http-equiv="content-language" content="es" />
     <meta name="language" content="Spanish" />
     <link rel="canonical" href={GLOBAL.rootUrl} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Schema.org structured data for personal profile -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "${GLOBAL.username}",
+        "url": "${GLOBAL.rootUrl}",
+        "image": "${GLOBAL.rootUrl}/${GLOBAL.profileImage}",
+        "jobTitle": "Desarrollador Web Frontend",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Ropema Rubio"
+        },
+        "sameAs": [
+          "${GLOBAL.githubProfile}",
+          "${GLOBAL.linkedinProfile}"
+        ],
+        "description": "${GLOBAL.seoDescription}"
+      }
+    </script>
   </Fragment>
   <Section class="mt-16 mb-0">
     <Hero />
+  </Section>
+  <Section class="mb-0">
+    <Experience />
   </Section>
   <Section class="mb-0">
     <Skills />

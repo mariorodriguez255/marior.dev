@@ -1,0 +1,78 @@
+---
+import Section from "../components/common/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import { GLOBAL } from "../lib/variables";
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>Experiencia Laboral • {GLOBAL.username}</title>
+    <meta
+      name="description"
+      content={`Experiencia profesional de ${GLOBAL.username} como desarrollador web frontend, incluyendo proyectos realizados en Ropema Rubio, Ayuntamiento Villanueva la Cañada y Antiun.`}
+    />
+    <meta property="og:title" content={`Experiencia Laboral • ${GLOBAL.username}`} />
+    <meta
+      property="og:description"
+      content={`Experiencia profesional de ${GLOBAL.username} como desarrollador web frontend, incluyendo proyectos realizados en Ropema Rubio, Ayuntamiento Villanueva la Cañada y Antiun.`}
+    />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta property="og:url" content={`${GLOBAL.rootUrl}/experience`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Experiencia Laboral • ${GLOBAL.username}`} />
+    <meta
+      name="twitter:description"
+      content={`Experiencia profesional de ${GLOBAL.username} como desarrollador web frontend, incluyendo proyectos realizados en Ropema Rubio, Ayuntamiento Villanueva la Cañada y Antiun.`}
+    />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta http-equiv="content-language" content="es" />
+    <meta name="language" content="Spanish" />
+    <link rel="canonical" href={`${GLOBAL.rootUrl}/experience`} />
+    <meta name="robots" content="index, follow" />
+  </Fragment>
+
+  <Section class="py-4 my-8">
+    <div class="flex items-center gap-4 pt-8 pb-16">
+      <h1 class="font-display text-3xl sm:text-4xl leading-loose">{GLOBAL.experienceTitle}</h1>
+    </div>
+
+    <div class="space-y-12">
+      {GLOBAL.experiences.map((experience) => (
+        <div class="border-b zag-border-b zag-transition pb-8 last:border-0">
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="w-full md:w-1/3">
+              <h2 class="text-xl font-mono font-semibold zag-text zag-transition">{experience.position}</h2>
+              <p class="text-base zag-muted zag-transition mt-1">
+                {experience.company}
+              </p>
+              <p class="text-sm zag-muted zag-transition">
+                {experience.period}
+              </p>
+              {experience.contractType && (
+                <p class="text-sm zag-muted zag-transition italic mt-1">
+                  {experience.contractType}
+                </p>
+              )}
+            </div>
+            
+            <div class="w-full md:w-2/3">
+              <p class="zag-text zag-transition text-base">
+                {experience.description}
+              </p>
+              
+              {experience.skills && (
+                <div class="flex flex-wrap gap-2 mt-4">
+                  {experience.skills.map((skill) => (
+                    <span class="-zag-text -zag-bg zag-transition px-3 py-1 text-sm font-semibold">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+</Layout>

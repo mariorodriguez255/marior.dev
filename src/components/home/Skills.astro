@@ -1,5 +1,7 @@
 ---
 import { GLOBAL } from "../../lib/variables";
+import CertificateButton from "../CertificateButton.astro";
+import CertificatePopup from "../CertificatePopup.astro";
 ---
 
 <div class="mt-12 mb-8">
@@ -38,11 +40,17 @@ import { GLOBAL } from "../../lib/variables";
       <!-- Certificaciones Completadas -->
       <div>
         <h4 class="text-base font-semibold zag-text zag-transition mb-3">{GLOBAL.certCompleted}</h4>
-        <ul class="flex flex-col gap-3">
-          {GLOBAL.completedCertifications.map((cert) => (
+        <ul class="flex flex-col gap-4">
+          {GLOBAL.completedCertifications.map((cert, index) => (
             <li class="zag-text zag-transition">
               <div class="font-medium">{cert.name}</div>
               <div class="text-sm zag-muted zag-transition">{cert.issuer} • {cert.date}</div>
+              {cert.imageUrl && (
+                <CertificateButton 
+                  certId={`cert-${index}`}
+                  certData={cert}
+                />
+              )}
             </li>
           ))}
         </ul>
@@ -75,4 +83,12 @@ import { GLOBAL } from "../../lib/variables";
       </div>
     </div>
   </div>
+  
+  <!-- Certificate Popup (solo se renderizará una vez en la página) -->
+  <CertificatePopup 
+    title="" 
+    issuer="" 
+    date="" 
+    imageUrl="" 
+  />
 </div>

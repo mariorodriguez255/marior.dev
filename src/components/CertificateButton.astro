@@ -1,0 +1,61 @@
+---
+export interface Props {
+  certId: string;
+  certData: {
+    name: string;
+    issuer: string;
+    date: string;
+    imageUrl: string;
+  }
+}
+
+const { certId, certData } = Astro.props;
+---
+
+<button 
+  class="zag-transition mt-2 px-3 py-1 text-sm font-medium -zag-text -zag-bg rounded hover:opacity-90 focus:outline-2 focus:outline-offset-2 focus:outline-zag-dark dark:focus:outline-zag-light"
+  data-cert-id={certId}
+  data-cert-title={certData.name}
+  data-cert-issuer={certData.issuer}
+  data-cert-date={certData.date}
+  data-cert-image={certData.imageUrl}
+>
+  Ver certificado
+</button>
+
+<script>
+  // Get all certificate buttons
+  const certButtons = document.querySelectorAll('[data-cert-id]');
+  
+  // Add click event to each button
+  certButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Get certificate data from button attributes
+      const title = button.getAttribute('data-cert-title');
+      const issuer = button.getAttribute('data-cert-issuer');
+      const date = button.getAttribute('data-cert-date');
+      const imageUrl = button.getAttribute('data-cert-image');
+      
+      // Get popup element
+      const popup = document.getElementById('certificate-popup');
+      
+      if (popup) {
+        // Update popup content
+        const titleEl = popup.querySelector('h3');
+        const subtitleEl = popup.querySelector('p');
+        const imageEl = popup.querySelector('img');
+        
+        if (titleEl) titleEl.textContent = title;
+        if (subtitleEl) subtitleEl.textContent = `${issuer} • ${date}`;
+        if (imageEl) {
+          imageEl.src = imageUrl || '';
+          imageEl.alt = `Certificado de ${title} emitido por ${issuer}`;
+        }
+        
+        // Show popup
+        popup.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+    });
+  });
+</script>

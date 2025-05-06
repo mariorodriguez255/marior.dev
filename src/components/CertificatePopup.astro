@@ -1,0 +1,66 @@
+---
+// Certificate popup component for viewing certification images
+export interface Props {
+  title: string;
+  issuer: string;
+  date: string;
+  imageUrl: string;
+}
+
+const { title, issuer, date, imageUrl } = Astro.props;
+---
+
+<div id="certificate-popup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div class="fixed inset-0 bg-black bg-opacity-50" id="certificate-backdrop"></div>
+  <div class="zag-bg zag-transition rounded max-w-2xl w-full max-h-[90vh] overflow-auto relative z-10 p-6">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h3 class="text-xl font-mono font-semibold zag-text zag-transition">{title}</h3>
+        <p class="text-sm zag-muted zag-transition">{issuer} • {date}</p>
+      </div>
+      <button 
+        id="close-popup" 
+        class="p-2 -zag-bg -zag-text zag-transition rounded"
+        aria-label="Cerrar"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="w-full overflow-hidden">
+      <img 
+        src={imageUrl} 
+        alt={`Certificado de ${title} emitido por ${issuer}`} 
+        class="w-full h-auto rounded"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get elements
+  const popup = document.getElementById('certificate-popup');
+  const backdrop = document.getElementById('certificate-backdrop');
+  const closeButton = document.getElementById('close-popup');
+  
+  // Function to close popup
+  function closePopup() {
+    if (popup) {
+      popup.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  }
+  
+  // Event listeners
+  closeButton?.addEventListener('click', closePopup);
+  backdrop?.addEventListener('click', closePopup);
+  
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup && !popup.classList.contains('hidden')) {
+      closePopup();
+    }
+  });
+</script>
