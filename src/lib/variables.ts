@@ -90,12 +90,12 @@ export const GLOBAL = {
     "PHP",
     "Git",
     "GitHub",
-    "Figma",
-    "Metodologías Ágiles"
+    "Figma"
   ],
 
-  // AI Skills (updated list)
+  // AI Skills (updated list with Model Context Protocol)
   aiSkills: [
+    "Model Context Protocol",
     "Machine Learning",
     "Prompt Engineering",
     "ChatGPT",
@@ -104,7 +104,7 @@ export const GLOBAL = {
     "Claude"
   ],
 
-  // Completed Certifications
+  // Completed Certifications (reordered as requested)
   completedCertifications: [
     {
       name: "Curso de IA y Prompt Engineering",
@@ -113,10 +113,10 @@ export const GLOBAL = {
       imageUrl: "/certificates/ia-prompt-eng.webp"
     },
     {
-      name: "Data Analytics",
-      issuer: "IBM",
-      date: "2024",
-      imageUrl: "/certificates/data-analytics.webp"
+      name: "MCPs (Model Context Protocol)",
+      issuer: "Academia MiduDev",
+      date: "2025",
+      imageUrl: "/certificates/mcps.webp"
     },
     {
       name: "Certificación Java",
@@ -126,7 +126,7 @@ export const GLOBAL = {
     },
     {
       name: "Desarrollador en HTML5 y CSS3",
-      issuer: "Universidad Pontificia de Salamanca",
+      issuer: "Universidad Pontificia Comillas",
       date: "2024",
       imageUrl: "/certificates/html-css-dev.webp"
     },
@@ -135,6 +135,12 @@ export const GLOBAL = {
       issuer: "Google",
       date: "2024",
       imageUrl: "/certificates/agile-methods.webp"
+    },
+    {
+      name: "Data Analytics",
+      issuer: "IBM",
+      date: "2024",
+      imageUrl: "/certificates/data-analytics.webp"
     },
     {
       name: "Git y GitHub",
