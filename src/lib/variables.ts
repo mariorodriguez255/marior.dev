@@ -2,13 +2,13 @@
 
 export const GLOBAL = {
   // Site metadata
-  username: "Mario Rodriguez",
+  username: "Mario Rodríguez",
   rootUrl: "https://marior.dev",
   shortDescription: "Estudiante de Desarrollo web e<br />Inteligencia Artificial.",
   longDescription: "Desarrollador web frontend especializado en React y tecnologías modernas. Con experiencia en proyectos reales y formación continua en Inteligencia Artificial y desarrollo web.",
   
   // SEO metadata
-  seoTitle: "Mario Rodriguez - Desarrollador Web Frontend & IA",
+  seoTitle: "Mario Rodríguez - Desarrollador Web Frontend & IA",
   seoDescription: "Portfolio de Mario Rodriguez, desarrollador web frontend especializado en React, JavaScript, Java y tecnologías modernas, con enfoque en IA y experiencia laboral en proyectos reales.",
   seoKeywords: "Mario Rodriguez, desarrollador web, frontend, React, JavaScript, Java, inteligencia artificial, portfolio, desarrollador Madrid",
   
@@ -123,13 +123,13 @@ export const GLOBAL = {
     {
       name: "Certificación Java",
       issuer: "CloudFtic",
-      date: "2023",
+      date: "2021",
       imageUrl: "/certificates/java-cert.webp"
     },
     {
       name: "Desarrollador en HTML5 y CSS3",
       issuer: "Universidad Pontificia Comillas",
-      date: "2024",
+      date: "2020",
       imageUrl: "/certificates/html-css-dev.webp"
     },
     {
