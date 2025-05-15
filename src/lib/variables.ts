@@ -80,23 +80,19 @@ export const GLOBAL = {
   // Technologies and Skills (ordered by importance)
   technologies: [
     "React",
-    "JavaScript",
+    "JavaScript (ES6+)",
     "Java",
-    "HTML",
-    "CSS",
+    "HTML5",
+    "CSS3",
     "Tailwind",
     "Astro",
     "SQL",
-    "PHP",
-    "Git",
-    "GitHub",
-    "Figma"
+    "Git"
   ],
 
   // AI Skills (updated list with Model Context Protocol)
   aiSkills: [
     "Model Context Protocol",
-    "Machine Learning",
     "Prompt Engineering",
     "ChatGPT",
     "Microsoft Copilot",
@@ -106,6 +102,12 @@ export const GLOBAL = {
 
   // Completed Certifications (reordered as requested)
   completedCertifications: [
+    {
+      name: "React Essentials",
+      issuer: "Mimo Academy",
+      date: "2025",
+      imageUrl: "/certificates/react-essentials.webp"
+    },
     {
       name: "Curso de IA y Prompt Engineering",
       issuer: "Microsoft x Founderz",
@@ -152,11 +154,6 @@ export const GLOBAL = {
 
   // In Progress Certifications
   inProgressCertifications: [
-    {
-      name: "React Development",
-      issuer: "Mimo",
-      date: "2024 - En curso"
-    },
     {
       name: "Frontend Career Path",
       issuer: "Codecademy",
